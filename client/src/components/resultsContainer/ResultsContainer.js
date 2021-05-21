@@ -1,16 +1,17 @@
 import React from "react";
-import Container from "../container/Container";
+import Section from "../section/Section";
 import ResultsItem from "../resultsItem/ResultsItem";
 
 function ResultsContainer() {
   return (
-    <Container>
-      <ul className="row">
+    <Section id="results">
+      <h2>Results</h2>
+      <ul className="px-0 row justify-content-center">
         <ResultsItem />
         <ResultsItem />
         <ResultsItem />
       </ul>
-    </Container>
+    </Section>
   );
 }
 
