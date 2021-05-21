@@ -8,7 +8,11 @@ function ResultsItem({ book }) {
           <h3 className="text-capitalize">{book.title}</h3>
         </div>
         <div className="col-3 text-end">
-          <a href={book.link} className="btn btn-outline-dark px-4">
+          <a
+            href={book.link}
+            target="_blank"
+            className="btn btn-outline-dark px-4"
+          >
             View
           </a>
           <button className="btn btn-outline-primary px-4 ms-2">Save</button>
