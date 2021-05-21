@@ -1,42 +1,45 @@
 import React from "react";
 
-function ResultsItem() {
+function ResultsItem({ book }) {
   return (
     <div className="li w-100 mt-4 py-4 bg-white shadow-sm px-5">
       <div className="row">
         <div className="col">
-          <h3 className="text-capitalize">Book Title</h3>
-          <h4 className="lead text-capitalize">
-            The Great Books behind the hogworts adventure
-          </h4>
-          <h5 className="h6 text-capitalize">Written By Author</h5>
+          <h3 className="text-capitalize">{book.title}</h3>
         </div>
-        <div className="col text-end">
-          <a href="" className="btn btn-outline-dark px-4">
+        <div className="col-3 text-end">
+          <a href={book.link} className="btn btn-outline-dark px-4">
             View
           </a>
           <button className="btn btn-outline-primary px-4 ms-2">Save</button>
         </div>
       </div>
+      <div className="row">
+        <div className="col-9">
+          <h4 className="lead text-capitalize">{book.subtitle}</h4>
+          <h5 className="h6 text-capitalize">
+            Written By
+            {book.authors.map((author, index, authorsArr) => {
+              console.log(authorsArr);
+              if (index === authorsArr.length - 1) {
+                return ` ${author}`;
+              }
+
+              return ` ${author},`;
+            })}
+          </h5>
+        </div>
+      </div>
       <div className="row mt-4">
         <div className="col">
           <img
-            src="https://picsum.photos/200/200?random=1"
-            alt=""
+            src={book.image}
+            alt={`${book.title} Front Cover`}
             className="img-thumbnail"
           />
         </div>
         <div className="col-10">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ad
-            veniam corporis incidunt perferendis veritatis voluptatum natus modi
-            exercitationem quos vero, ipsam totam nisi excepturi doloribus
-            temporibus cupiditate esse voluptas. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Labore ad veniam corporis incidunt
-            perferendis veritatis voluptatum natus modi exercitationem quos
-            vero, ipsam totam nisi excepturi doloribus temporibus cupiditate
-            esse voluptas.
-          </p>
+          <p>{book.description}</p>
         </div>
       </div>
     </div>

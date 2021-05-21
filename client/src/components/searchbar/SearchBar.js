@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import Section from "../section/Section";
 
-function SearchBar() {
+function SearchBar({ handleSearch }) {
+  const inputRef = useRef();
+
   return (
     <Section id="search" className="mb-4">
       <div className="row mb-3">
@@ -19,8 +21,16 @@ function SearchBar() {
                 placeholder="Search For Books"
                 aria-label="Book Name"
                 aria-describedby="search-btn"
+                ref={inputRef}
               />
-              <button className="btn btn-primary" id="search-btn">
+              <button
+                className="btn btn-primary"
+                id="search-btn"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSearch(inputRef.current.value);
+                }}
+              >
                 Search
               </button>
             </div>
