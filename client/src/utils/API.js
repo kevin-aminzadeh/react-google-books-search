@@ -12,6 +12,7 @@ export default {
             startIndex: startIndex,
             maxSize: maxSize,
             projection: "lite",
+            printType: "books",
           },
         }
       );
@@ -20,15 +21,21 @@ export default {
       const bookData = response.data.items.map((bookRecord) => {
         return {
           title: bookRecord.volumeInfo.title,
-          subtitle: bookRecord.searchInfo.textSnippet,
+          subtitle: bookRecord.volumeInfo.subtitle,
           authors: bookRecord.volumeInfo.authors,
-          description: bookRecord.volumeInfo.description,
+          description: bookRecord.volumeInfo.description
+            ? bookRecord.volumeInfo.description
+            : bookRecord.searchInfo.textSnippet,
           image: bookRecord.volumeInfo.imageLinks.thumbnail,
           link: bookRecord.volumeInfo.infoLink,
         };
       });
 
-      return response.data.items;
+      return {
+        books: bookData,
+        totalItems: response.data.totalItems,
+        query: searchQuery,
+      };
     } catch (err) {
       // Return error object
       throw err;
