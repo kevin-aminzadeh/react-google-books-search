@@ -3,7 +3,7 @@ import React from "react";
 function Navbar() {
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3">
         <div className="container-fluid">
           <span className="navbar-brand" href="#">
             Google Books
