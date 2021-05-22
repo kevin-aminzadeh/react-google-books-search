@@ -11,13 +11,14 @@ export default {
             q: searchQuery,
             startIndex: startIndex,
             maxSize: maxSize,
-            projection: "lite",
+
             printType: "books",
           },
         }
       );
 
       // Format response data to match db Book schema
+      console.log(response.data.items);
       const bookData = response.data.items.map((bookRecord) => {
         return {
           title: bookRecord.volumeInfo.title,
@@ -28,7 +29,9 @@ export default {
             : bookRecord.searchInfo
             ? bookRecord.searchInfo.textSnippet
             : "No description available.",
-          image: bookRecord.volumeInfo.imageLinks.thumbnail,
+          image: bookRecord.volumeInfo.imageLinks
+            ? bookRecord.volumeInfo.imageLinks.thumbnail
+            : "http://via.placeholder.com/128x191",
           link: bookRecord.volumeInfo.infoLink,
         };
       });
@@ -48,7 +51,6 @@ export default {
     try {
       const response = await axios.get("/api/books");
 
-      console.log(response.data);
       return {
         books: [...response.data],
         totalItems: response.data.length,
