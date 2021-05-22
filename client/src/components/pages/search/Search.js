@@ -18,11 +18,6 @@ function Search() {
     setSearchResults(results);
   };
 
-  // Save Book To DB
-  const handleSave = async (bookData) => {
-    API.saveBook(bookData);
-  };
-
   // Render Search Results Component If searchResults State Object Contains Data
   const renderResults = () => {
     if (Object.keys(searchResults).length) {
@@ -41,7 +36,7 @@ function Search() {
               </p>
             </div>
           </div>
-          <ListContainer data={searchResults.books} handleSave={handleSave} />
+          <ListContainer data={searchResults.books} />
         </Section>
       );
     }
