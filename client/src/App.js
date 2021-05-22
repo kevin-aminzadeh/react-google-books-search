@@ -9,7 +9,10 @@ import API from "./utils/API";
 import SavedBooksContext from "./utils/SavedBooksContext";
 
 function App() {
-  const [savedBooksState, setSavedBooksState] = useState({});
+  const [savedBooksState, setSavedBooksState] = useState({
+    books: [],
+    totalItems: 0,
+  });
 
   useEffect(() => {
     API.getSavedBooks()
