@@ -6,7 +6,7 @@ function Navbar() {
     <header>
       <nav className="navbar navbar-expand navbar-dark bg-dark py-3">
         <div className="container-fluid">
-          <Link exact to="/" className="navbar-brand">
+          <Link to="/" className="navbar-brand">
             Google Books
           </Link>
 
