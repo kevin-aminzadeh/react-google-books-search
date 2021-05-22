@@ -6,7 +6,7 @@ import ListContainer from "../../listContainer/ListContainer";
 import SavedBooksContext from "../../../utils/SavedBooksContext";
 
 function SavedBooks() {
-  // Initialize Search Results State
+  // Initialize Saved Books useContext Object
   const { books, totalItems } = useContext(SavedBooksContext);
 
   const renderSavedBooksList = () => {
