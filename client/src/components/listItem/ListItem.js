@@ -1,6 +1,6 @@
 import React from "react";
 
-function ListItem({ data, handleSave, saved }) {
+function ListItem({ data, handleSave, handleDelete, saved }) {
   return (
     <div className="li w-100 mt-4 py-4 bg-white shadow-sm px-5">
       <div className="row">
@@ -19,7 +19,7 @@ function ListItem({ data, handleSave, saved }) {
             <button
               className="btn btn-outline-danger px-4 ms-2"
               onClick={() => {
-                handleSave(data);
+                handleDelete(data._id);
               }}
             >
               Delete
