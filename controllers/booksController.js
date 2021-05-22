@@ -22,7 +22,6 @@ module.exports = {
   },
   // Remove Book
   remove: (req, res) => {
-    console.log(req.params.id);
     bookModel
       .deleteMany({ _id: req.params.id })
       .then((bookData) => res.json(bookData))
