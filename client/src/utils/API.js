@@ -25,7 +25,9 @@ export default {
           authors: bookRecord.volumeInfo.authors,
           description: bookRecord.volumeInfo.description
             ? bookRecord.volumeInfo.description
-            : bookRecord.searchInfo.textSnippet,
+            : bookRecord.searchInfo
+            ? bookRecord.searchInfo.textSnippet
+            : "No description available.",
           image: bookRecord.volumeInfo.imageLinks.thumbnail,
           link: bookRecord.volumeInfo.infoLink,
         };
@@ -42,8 +44,18 @@ export default {
     }
   },
   // Get All Saved Books
-  getSavedBooks: () => {
-    return axios.get("/api/books");
+  getSavedBooks: async () => {
+    try {
+      const response = await axios.get("/api/books");
+
+      console.log(response.data);
+      return {
+        books: [...response.data],
+        totalItems: response.data.length,
+      };
+    } catch (err) {
+      throw err;
+    }
   },
   // Save Book To Database
   saveBook: (bookData) => {
