@@ -43,7 +43,6 @@ function ListItem({ data, handleSave, handleDelete, saved }) {
               className="btn btn-outline-primary px-4 w-100"
               onClick={(e) => {
                 e.target.disabled = true;
-                console.log("click");
                 handleSave(data);
               }}
               disabled={saved}
