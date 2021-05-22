@@ -1,6 +1,6 @@
 import React from "react";
 
-function ListItem({ data, handleSave }) {
+function ListItem({ data, handleSave, saved }) {
   return (
     <div className="li w-100 mt-4 py-4 bg-white shadow-sm px-5">
       <div className="row">
@@ -15,14 +15,26 @@ function ListItem({ data, handleSave }) {
           >
             View
           </a>
-          <button
-            className="btn btn-outline-primary px-4 ms-2"
-            onClick={() => {
-              handleSave(data);
-            }}
-          >
-            Save
-          </button>
+          {saved ? (
+            <button
+              className="btn btn-outline-danger px-4 ms-2"
+              onClick={() => {
+                handleSave(data);
+              }}
+            >
+              Delete
+            </button>
+          ) : (
+            <button
+              className="btn btn-outline-primary px-4 ms-2"
+              onClick={() => {
+                handleSave(data);
+              }}
+              disabled={saved}
+            >
+              Save
+            </button>
+          )}
         </div>
       </div>
       <div className="row">
