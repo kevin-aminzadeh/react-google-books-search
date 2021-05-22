@@ -3,7 +3,6 @@ import Container from "../../container/Container";
 import Section from "../../section/Section";
 import Hero from "../../hero/Hero";
 import ListContainer from "../../listContainer/ListContainer";
-import API from "../../../utils/API";
 import SavedBooksContext from "../../../utils/SavedBooksContext";
 
 function SavedBooks() {
