@@ -10,29 +10,25 @@ function SavedBooks() {
   // Initialize Search Results State
   const { books, totalItems } = useContext(SavedBooksContext);
 
-  const renderSavedBooks = () => {
-    if (books) {
-      return (
-        <Section id="results" className="mt-5" heading={`Saved Books`}>
-          <div className="row">
-            <div className="col text-end">
-              <p className="lead mb-0 fw-light">
-                Found
-                <span className="fw-bold"> {totalItems} </span>
-                Matching Books.
-              </p>
-            </div>
-          </div>
-          <ListContainer data={books} />
-        </Section>
-      );
+  const renderSavedBooksList = () => {
+    if (books.length) {
+      return <ListContainer data={books} />;
     }
+    return (
+      <div className="row h-100 py-5">
+        <div className="col text-center">
+          <p className="lead mb-0 mt-5">Your Saved Books Will Appear Here.</p>
+        </div>
+      </div>
+    );
   };
 
   return (
     <Container>
       <Hero />
-      {renderSavedBooks()}
+      <Section id="results" className="mt-5" heading={`Saved Books`}>
+        {renderSavedBooksList()}
+      </Section>
     </Container>
   );
 }
