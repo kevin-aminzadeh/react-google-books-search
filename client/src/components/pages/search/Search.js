@@ -30,9 +30,9 @@ function Search() {
         <Section
           id="results"
           className="mt-5"
-          heading={`Showing Results For "${searchResults.query}"`}
+          heading={`Showing Results For "${searchResults.query}."`}
         >
-          <div className="row">
+          <div className="row d-none d-md-flex">
             <div className="col text-end">
               <p className="lead mb-0 fw-light">
                 Found

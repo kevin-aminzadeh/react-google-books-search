@@ -7,7 +7,7 @@ function SearchBar({ handleSearch }) {
   return (
     <Section id="search" className="mb-4" heading="Book Search">
       <div className="row mt-2">
-        <div className="col px-0">
+        <div className="col">
           <form className="w-100">
             <div className="input-group mb-3">
               <input

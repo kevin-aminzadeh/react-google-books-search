@@ -1,14 +1,14 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <header>
       <nav className="navbar navbar-expand navbar-dark bg-dark py-3">
         <div className="container-fluid">
-          <span className="navbar-brand" href="#">
+          <Link exact to="/" className="navbar-brand">
             Google Books
-          </span>
+          </Link>
 
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">

@@ -30,6 +30,15 @@ function SavedBooks() {
   return (
     <Container>
       <Section id="results" className="mt-5" heading={`Saved Books`}>
+        <div className="row d-none d-md-flex">
+          <div className="col text-end">
+            <p className="lead mb-0 fw-light">
+              Found
+              <span className="fw-bold"> {totalItems} </span>
+              Saved Books.
+            </p>
+          </div>
+        </div>
         {renderSavedBooksList()}
       </Section>
     </Container>
