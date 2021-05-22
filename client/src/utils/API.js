@@ -18,9 +18,9 @@ export default {
       );
 
       // Format response data to match db Book schema
-      console.log(response.data.items);
       const bookData = response.data.items.map((bookRecord) => {
         return {
+          _id: bookRecord.id,
           title: bookRecord.volumeInfo.title,
           subtitle: bookRecord.volumeInfo.subtitle,
           authors: bookRecord.volumeInfo.authors,
