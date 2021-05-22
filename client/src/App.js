@@ -7,6 +7,8 @@ import Navbar from "./components/navbar/Navbar";
 import API from "./utils/API";
 
 import SavedBooksContext from "./utils/SavedBooksContext";
+import Hero from "./components/hero/Hero";
+import Container from "./components/container/Container";
 
 function App() {
   const [savedBooksState, setSavedBooksState] = useState({
@@ -31,6 +33,9 @@ function App() {
     <div className="App ">
       <Router>
         <Navbar />
+        <Container>
+          <Hero />
+        </Container>
         <Switch>
           <SavedBooksContext.Provider value={{ ...savedBooksState }}>
             <Route exact path={["/", "/search"]}>

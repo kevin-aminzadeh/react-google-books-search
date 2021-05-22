@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../../container/Container";
 import Section from "../../section/Section";
-import Hero from "../../hero/Hero";
 import ListContainer from "../../listContainer/ListContainer";
 import SearchBar from "../../searchbar/SearchBar";
 import API from "../../../utils/API";
@@ -10,6 +9,12 @@ function Search() {
   // Initialize Search Results State
   const [searchResults, setSearchResults] = useState({});
 
+  // Update Document Title On Mount
+  useEffect(() => {
+    document.title = "Search | React Google Books";
+  }, []);
+
+  // Handle Search Event
   const handleSearch = async (searchQuery) => {
     // Fetch Search Results from Google Books API
     const results = await API.searchGoogleBooks(searchQuery);
@@ -44,7 +49,6 @@ function Search() {
 
   return (
     <Container>
-      <Hero />
       <SearchBar handleSearch={handleSearch} />
       {renderResults()}
     </Container>

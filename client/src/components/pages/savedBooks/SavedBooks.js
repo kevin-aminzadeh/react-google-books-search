@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Container from "../../container/Container";
 import Section from "../../section/Section";
-import Hero from "../../hero/Hero";
 import ListContainer from "../../listContainer/ListContainer";
 import SavedBooksContext from "../../../utils/SavedBooksContext";
 
@@ -9,6 +8,12 @@ function SavedBooks() {
   // Initialize Saved Books useContext Object
   const { books, totalItems } = useContext(SavedBooksContext);
 
+  // Update Document Title On Mount
+  useEffect(() => {
+    document.title = "Saved Books | React Google Books Search";
+  }, []);
+
+  // Render Saved Books If There Are Any
   const renderSavedBooksList = () => {
     if (books.length) {
       return <ListContainer data={books} />;
@@ -24,7 +29,6 @@ function SavedBooks() {
 
   return (
     <Container>
-      <Hero />
       <Section id="results" className="mt-5" heading={`Saved Books`}>
         {renderSavedBooksList()}
       </Section>
