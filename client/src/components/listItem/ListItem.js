@@ -17,9 +17,10 @@ function ListItem({ data, handleSave, handleDelete, saved }) {
           </a>
           {saved ? (
             <button
-              className="btn btn-outline-danger px-4 ms-2"
-              onClick={() => {
-                handleDelete(data._id);
+              className="btn btn-danger px-4 ms-2"
+              onClick={(e) => {
+                e.target.disabled = true;
+                handleDelete(data);
               }}
             >
               Delete
@@ -27,7 +28,9 @@ function ListItem({ data, handleSave, handleDelete, saved }) {
           ) : (
             <button
               className="btn btn-outline-primary px-4 ms-2"
-              onClick={() => {
+              onClick={(e) => {
+                e.target.disabled = true;
+                console.log("click");
                 handleSave(data);
               }}
               disabled={saved}

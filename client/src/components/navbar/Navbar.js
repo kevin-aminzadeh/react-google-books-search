@@ -21,14 +21,14 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
+            <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <NavLink exact to="/" className="nav-link">
                   Search
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/saved" className="nav-link">
+                <NavLink exact to="/saved" className="nav-link">
                   Saved
                 </NavLink>
               </li>
