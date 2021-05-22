@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Container from "../../container/Container";
+import Section from "../../section/Section";
 import Hero from "../../hero/Hero";
-import ResultsContainer from "../../resultsContainer/ResultsContainer";
+import ListContainer from "../../listContainer/ListContainer";
 import SearchBar from "../../searchbar/SearchBar";
 import API from "../../../utils/API";
 
@@ -17,10 +18,32 @@ function Search() {
     setSearchResults(results);
   };
 
+  // Save Book To DB
+  const handleSave = async (bookData) => {
+    API.saveBook(bookData);
+  };
+
   // Render Search Results Component If searchResults State Object Contains Data
   const renderResults = () => {
     if (Object.keys(searchResults).length) {
-      return <ResultsContainer data={searchResults} />;
+      return (
+        <Section
+          id="results"
+          className="mt-5"
+          heading={`Showing Results For "${searchResults.query}"`}
+        >
+          <div className="row">
+            <div className="col text-end">
+              <p className="lead mb-0 fw-light">
+                Found
+                <span className="fw-bold"> {searchResults.totalItems} </span>
+                Matching Books.
+              </p>
+            </div>
+          </div>
+          <ListContainer data={searchResults.books} handleSave={handleSave} />
+        </Section>
+      );
     }
   };
 

@@ -5,13 +5,8 @@ function SearchBar({ handleSearch }) {
   const inputRef = useRef();
 
   return (
-    <Section id="search" className="mb-4">
-      <div className="row mb-3">
-        <div className="col">
-          <h2>Book Search</h2>
-        </div>
-      </div>
-      <div className="row">
+    <Section id="search" className="mb-4" heading="Book Search">
+      <div className="row mt-2">
         <div className="col px-0">
           <form className="w-100">
             <div className="input-group mb-3">
