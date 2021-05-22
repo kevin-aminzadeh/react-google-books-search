@@ -7,7 +7,7 @@ const socketURL =
     : "https://localhost:3000";
 
 // Open Up a New Socket Connection
-const socket = io.connect(socketURL);
+const socket = io();
 
 // Set Default Socket Context Value to "socket"
 const SocketContext = React.createContext(socket);
