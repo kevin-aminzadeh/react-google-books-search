@@ -98,13 +98,12 @@ function App() {
           </Container>
           <Switch>
             <SavedBooksContext.Provider value={{ ...savedBooksState }}>
-              <Route exact path={["/"]}>
+              <Route exact path="/">
                 <Search />
               </Route>
-              <Route exact path={"/saved"}>
+              <Route path="/saved">
                 <SavedBooks />
               </Route>
-              <Route path="" render={() => <Redirect to="/" />} />
             </SavedBooksContext.Provider>
           </Switch>
         </Router>
